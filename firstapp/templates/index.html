@@ -1,0 +1,535 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="abc">
+
+
+ 
+<head>
+    <meta charset="utf-8">
+    
+    <title>Tap and Tile</title>
+    <meta name="Tiles">
+    <meta name="tap and tile">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="    assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
+    <!-- All css files are included here. -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/iconfont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/helper.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Modernizr JS -->
+    <script src="{% static 'assets/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+
+    <div id="main-wrapper">
+
+        
+        {% include  "menu.html" %}
+        <div class="hero-section section position-relative">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tf-element-carousel slider-nav" data-slick-options='{
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1,
+                            "infinite": true,
+                            "arrows": false,
+                            "dots": true,
+                            "autoplay" : true
+                            }' data-slick-responsive='[
+                            {"breakpoint":768, "settings": {
+                            "slidesToShow": 1
+                            }},
+                            {"breakpoint":575, "settings": {
+                            "slidesToShow": 1
+                            }}
+                            ]'>
+                            
+                            {% for slide in slides %}
+                            <div class="hero-item bg-image image-height-three"
+                                data-bg="{{slide.image.url}}">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <!--Hero Content start-->
+                                            <div class="hero-content-2 left hero-content-3 pl-60 pl-xs-0 ">
+
+                                                <h3>{{slide.offer}}</h3>
+                                                <h1>{{slide.offerDetail1}} <br> {{slide.offerDetail2}}</h1>
+                                                <a class="btn" href="Limitedoffer.html">shop now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--slider section end-->
+
+        <!--Feature section start-->
+        <div
+            class="feature-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <!-- Single Feature Start -->
+                        <div class="single-feature mb-30">
+                            <div class="feature-image">
+                                <img src="{% static 'assets/images/icons/free_shipping.png' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">FREE SHIPPING</h4>
+                                <p class="short-desc">Mirum est notare quam littera gothica, quam nunc putamus parum
+                                    claram</p>
+                            </div>
+                        </div>
+                        <!-- Single Feature End -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <!-- Single Feature Start -->
+                        <div class="single-feature mb-30">
+                            <div class="feature-image">
+                                <img src="{% static 'assets/images/icons/money_back.png' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">MONEY BACK GUARANTEE</h4>
+                                <p class="short-desc">Mirum est notare quam littera gothica, quam nunc putamus parum
+                                    claram</p>
+                            </div>
+                        </div>
+                        <!-- Single Feature End -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <!-- Single Feature Start -->
+                        <div class="single-feature mb-30">
+                            <div class="feature-image">
+                                <img src="{% static 'assets/images/icons/support247.png' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">ONLINE SUPPORT 24/7</h4>
+                                <p class="short-desc">Mirum est notare quam littera gothica, quam nunc putamus parum
+                                    claram</p>
+                            </div>
+                        </div>
+                        <!-- Single Feature End -->
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!--Feature section end-->
+
+        <!--Banner section start-->
+        <div class="banner-section section">
+            <div class="container">
+                <div class="row">
+                    {%  for options in option %}
+                    <div class="col-md-4 col-sm-6">
+                        <!-- Single Banner Start -->
+                        
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop.html">
+                                    <img src="{{options.image.url}}" alt="" width="375" height='550'>
+                                </a>
+                            </div>
+                            <div class="banner-content banner-content-three">
+                                <h3 class="title">{{options.name}}</h3>
+                                <h4 class="title-light">{{options.detail}}</h4>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    {% endfor %}
+                    <div class="col-md-4 col-sm-12">
+                        <div class="row">
+                            {% for soptions in soption %}
+                            <div class="col-12 col-sm-6 col-md-12">
+                                <!-- Single Banner Start -->
+                                <div class="single-banner-item mb-30">
+                                    <div class="banner-image">
+                                        <a href="shop.html">
+                                            <img src="{{soptions.image.url}}" alt="" width="370" height="258">
+                                        </a>
+                                    </div>
+                                    <div class="banner-content banner-content-three">
+                                        <h3 class="title">{{soptions.name}}</h3>
+                                        <h4 class="title-light">{{soptions.detail}}</h4>
+                                    </div>
+                                </div>
+                                <!-- Single Banner End -->
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Banner section end-->
+
+        <!--Product section start-->
+        <div class="product-section section pt-45 pt-lg-25 pt-md-15 pt-sm-5 pt-xs-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title text-left mb-30 pt-20">
+                            <h2>Top Products</h2>
+                            <p>Browse the collection of our top rated products.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tf-element-carousel" data-slick-options='{
+                    "slidesToShow": 4,
+                    "slidesToScroll": 1,
+                    "infinite": true,
+                    "arrows": true,
+                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
+                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
+                    }' data-slick-responsive='[
+                    {"breakpoint":1199, "settings": {
+                    "slidesToShow": 3
+                    }},
+                    {"breakpoint":992, "settings": {
+                    "slidesToShow": 2
+                    }},
+                    {"breakpoint":768, "settings": {
+                    "slidesToShow": 2
+                    }},
+                    {"breakpoint":576, "settings": {
+                    "slidesToShow": 1,
+                    "arrows": false,
+                    "autoplay": true
+                    }}
+                    ]'>
+                    {% for tproducts in product %}
+                    {% if tproducts.TopProduct %}
+                    <div class="col">
+                        <!--  Single Grid product Start -->
+                        
+                        <div class="single-grid-product mb-40">
+                            <div class="product-image">
+                                <div class="product-label">
+                                    {% if tproducts.new %}
+                                    <span class="new">New</span>
+                                    {% endif %}
+                                </div>
+                                <a href="single-product.html">
+                                    <img src="{{tproducts.image.url}}"  alt="" width="270" height="360">
+                                   
+                                </a>
+
+                                <div class="product-action d-flex justify-content-between">
+                                    <a class="product-btn" href="cart.html">Add to Cart</a>
+                                    <ul class="d-flex">
+                                        <li><a href="wishlist.html"><i class="ion-android-favorite-outline"></i></a>
+                                        </li>
+                                        <li><a href="compare.html"><i class="ion-ios-shuffle"></i></a></li>
+                                        <li><a href="#quick-view-modal-container" data-toggle="modal"
+                                                title="Quick View"><i class="ion-ios-search-strong"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category-rating">
+                                    <span class="category"><a href="shop.html">{{tproducts.Type}}</a></span>
+                                    <span class="rating">
+                                        
+                                    </span>
+                                </div>
+
+                                <h3 class="title"> <a href="single-product.html">{{tproducts.name}}</a></h3>
+                                <p class="product-price"><span class="discounted-price">&#8377;{{tproducts.price}}</span> <span
+                                        class="main-price discounted">&#8377;{{tproducts.offerprice}}</span></p>
+                            </div>
+                        </div>
+                        
+                        <!--  Top product End -->
+                    </div>
+                    {% endif %} 
+                    {% endfor %}                   
+                </div>
+
+            </div>
+        </div>
+        <!--Product section end-->
+
+        <!--Blog section start-->
+        <div class="blog-section section pt-35 pt-lg-15 pt-md-5 pt-sm-0 pt-xs-0">
+            
+        </div>
+        <!--Blog section end-->
+
+        <!--Banner section start-->
+        <div class="banner-section section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop.html">
+                                    <img src="{% static 'assets/images/banner/home3-banner5.jpg' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop.html">
+                                    <img src="{% static 'assets/images/banner/home3-banner6.jpg' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Banner section end-->
+
+        <!-- List Product Section Start -->
+        <div class="list-product-section section pt-80 pt-lg-60 pt-md-50 pt-sm-40 pt-xs-20">
+            <div class="container sb-border  pb-75 pb-lg-55 pb-md-45 pb-sm-35 pb-xs-25">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <!--  Product List Widget Wrapper -->
+                        <div class="product-list-widget-wrapper">
+                            <!-- widget product list title -->
+                            <div class="list-product-section-title mb-35">
+                                <h3><span>On Sale</span></h3>
+                                <div class="on-sale-nav slick-btns"></div>
+                            </div>
+                            <!-- widget product list title -->
+
+                            <!--  widget product list wrapper -->
+                            <div class="widget-product-list-wrapper tf-element-carousel top-nav" data-slick-options='{
+                                    "slidesToShow": 1,
+                                    "slidesToScroll": 1,
+                                    "infinite": true,
+                                    "arrows": true,
+                                    "rows": 3,
+                                    "appendArrows": ".on-sale-nav",
+                                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
+                                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
+                                    }' data-slick-responsive='[
+                                    {"breakpoint":1199, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":992, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":768, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":576, "settings": {
+                                    "slidesToShow": 1,
+                                    "arrows": false,
+                                    "autoplay": true
+                                    }}
+                                    ]'>
+                                <!--  single widget product -->
+                                {% for tproduct in product %}
+                                {% if tproduct.OnSale %}
+                                <div class="single-grid-product list-mode">
+                                    <div class="list-mode-image">
+                                        <a href="single-product.html">
+                                            <img src="{{tproduct.image.url}}" width="100px" height="133px">
+                                        </a>
+                                    </div>
+                                    <div class="list-mode-content">
+                                         <span class="category"><a href="shop.html">{{tproduct.Type}}</a></span>
+                                        <h3 class="title"> <a href="single-product.html">{{tproduct.name}}</a></h3>
+                                        <div class="product-category-rating">
+                                            
+                                        </div>
+                                        <p class="product-price"><span class="discounted-price">&#8377;{{tproduct.price}}</span> <span
+                                                class="main-price discounted">&#8377;{{tproduct.offerprice}}</span></p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                <!--  single widget product -->                               
+                            </div>
+                            <!-- End of widget product list wrapper -->
+                        </div>
+                        <!--  Product List Widget Wrapper -->
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <!--  Product List Widget Wrapper -->
+                        <div class="product-list-widget-wrapper">
+                            <!-- widget product list title -->
+                            <div class="list-product-section-title mb-35">
+                                <h3><span>Latest Arrivals</span></h3>
+                                <div class="latest-nav slick-btns"></div>
+                            </div>
+                            <!-- widget product list title -->
+
+                            <!--  widget product list wrapper -->
+                            <div class="widget-product-list-wrapper tf-element-carousel top-nav" data-slick-options='{
+                                    "slidesToShow": 1,
+                                    "slidesToScroll": 1,
+                                    "infinite": true,
+                                    "arrows": true,
+                                    "rows": 3,
+                                    "appendArrows": ".latest-nav",
+                                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
+                                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
+                                    }' data-slick-responsive='[
+                                    {"breakpoint":1199, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":992, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":768, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":576, "settings": {
+                                    "slidesToShow": 1,
+                                    "arrows": false,
+                                    "autoplay": true
+                                    }}
+                                    ]'>
+                                <!--  single widget product -->
+                                {% for tproduct in product %}
+                                {% if tproduct.new %}
+                                <div class="single-grid-product list-mode">
+                                    <div class="list-mode-image">
+                                        <a href="single-product.html">
+                                            <img src="{{tproduct.image.url}}" width="100px" height="133px" >
+                                        </a>
+                                    </div>
+                                    <div class="list-mode-content">
+                                        <span class="category"><a href="shop.html">{{tproduct.Type}}</a></span>
+                                        <h3 class="title"> <a href="single-product.html">{{tproduct.name}}</a></h3>
+                                        <div class="product-category-rating">                                            
+                                        </div>
+                                        <p class="product-price"><span class="discounted-price">&#8377;{{tproduct.price}}</span> <span
+                                                class="main-price discounted">&#8377;{{tproduct.offerprice}}</span></p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                <!--  single widget product -->
+
+                                
+                            </div>
+                            <!-- End of widget product list wrapper -->
+                        </div>
+                        <!--  Product List Widget Wrapper -->
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <!--  Product List Widget Wrapper -->
+                        <div class="product-list-widget-wrapper">
+                            <!-- widget product list title -->
+                            <div class="list-product-section-title mb-35">
+                                <h3><span>Top Products</span></h3>
+                                <div class="top-rated-nav slick-btns"></div>
+                            </div>
+                            <!-- widget product list title -->
+
+                            <!--  widget product list wrapper -->
+                            <div class="widget-product-list-wrapper tf-element-carousel top-nav" data-slick-options='{
+                                    "slidesToShow": 1,
+                                    "slidesToScroll": 1,
+                                    "infinite": true,
+                                    "arrows": true,
+                                    "rows": 3,
+                                    "appendArrows": ".top-rated-nav",
+                                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-left" },
+                                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-right" }
+                                    }' data-slick-responsive='[
+                                    {"breakpoint":1199, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":992, "settings": {
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":768, "settings": { 
+                                    "slidesToShow": 1
+                                    }},
+                                    {"breakpoint":576, "settings": {
+                                    "slidesToShow": 1,
+                                    "arrows": false,
+                                    "autoplay": true
+                                    }}
+                                    ]'>
+                                <!--  single widget product -->
+                                {% for tproduct in product %}
+                                {% if tproduct.TopProduct %}
+                                <div class="single-grid-product list-mode">
+                                    <div class="list-mode-image">
+                                        <a href="single-product.html">
+                                            <img src="{{tproduct.image.url}}"  width="100px" height="133px">
+                                        </a>
+                                    </div>
+                                    <div class="list-mode-content">
+                                        <span class="category"><a href="shop.html">{{tproduct.Type}}</a></span>
+                                        <h3 class="title"> <a href="single-product.html">{{tproduct.name}}</a></h3>
+                                        
+                                        <p class="product-price"><span class="discounted-price">&#8377;{{tproduct.price}}</span> <span
+                                                class="main-price discounted">&#8377;{{tproduct.offerprice}}</span></p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                <!--  single widget product -->
+
+                                
+                            </div>
+                            <!-- End of widget product list wrapper -->
+                        </div>
+                        <!--  Product List Widget Wrapper -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- List Product Section End -->
+
+        <!--NewsLetter section start-->
+        
+        
+
+        <!--Footer section start-->
+        {% include 'footer.html' %}
+        <!--Footer section end-->
+
+        <!-- Modal Area Strat -->
+        
+        
+
+    </div>
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!-- All jquery file included here -->
+    <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+
+
+</html>
